@@ -2,6 +2,8 @@
 
 $LOAD_PATH.push File.expand_path("../lib", __FILE__)
 require "aws_cron/identity"
+require "aws_cron/controller"
+require "aws_cron/runner"
 
 Gem::Specification.new do |spec|
   spec.name = AwsCron::Identity.name
