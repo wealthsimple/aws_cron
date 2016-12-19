@@ -8,15 +8,17 @@ Gem::Specification.new do |spec|
   spec.version = AwsCron::Identity.version
   spec.platform = Gem::Platform::RUBY
   spec.authors = ["Marco Costa"]
-  spec.email = ["mmarcottulio@gmail.com"]
-  spec.homepage = ""
-  spec.summary = ""
+  spec.email = ["marco@marcotc.com"]
+  spec.homepage = "https://github.com/wealthsimple/aws_cron"
+  spec.summary = "AWS Elastic Beanstalk cron scheduling support"
   spec.license = "MIT"
 
   if File.exist?(Gem.default_key_path) && File.exist?(Gem.default_cert_path)
     spec.signing_key = Gem.default_key_path
     spec.cert_chain = [Gem.default_cert_path]
   end
+
+  spec.add_dependency "activesupport", "~> 4.2.7"
 
   spec.add_development_dependency "rake", "~> 11.0"
   spec.add_development_dependency "gemsmith", "~> 8.1"
