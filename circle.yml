@@ -1,13 +1,11 @@
 machine:
   ruby:
-    version: 2.2.2
+    version: 2.3.0
 dependencies:
   override:
-    - 'rvm-exec 2.2.2 bundle install'
     - 'rvm-exec 2.3.0 bundle install'
   post:
     - bundle exec bundle-audit update && bundle exec bundle-audit check
 test:
   override:
-    - 'rvm-exec 2.2.2 bundle exec rspec'
     - 'rvm-exec 2.3.0 bundle exec rspec'
