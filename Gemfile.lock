@@ -2,7 +2,8 @@ PATH
   remote: .
   specs:
     aws_cron (0.1.0)
-      activesupport (~> 4.2.7)
+      activesupport (~> 4.0)
+      parse-cron (~> 0.1.4)
 
 GEM
   remote: https://rubygems.org/
@@ -72,6 +73,7 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    parse-cron (0.1.4)
     parser (2.3.3.1)
       ast (~> 2.2)
     powerpack (0.1.1)

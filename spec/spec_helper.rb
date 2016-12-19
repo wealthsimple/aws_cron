@@ -26,3 +26,5 @@ RSpec.configure do |config|
   $stdout = File.new("/dev/null", "w") if ENV["SUPPRESS_STDOUT"] == "enabled"
   $stderr = File.new("/dev/null", "w") if ENV["SUPPRESS_STDERR"] == "enabled"
 end
+
+require 'aws_cron'

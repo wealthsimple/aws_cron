@@ -1,3 +1,5 @@
+require 'aws_cron'
+
 module AwsCron
   describe Controller do
 

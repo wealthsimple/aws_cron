@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'active_support'
+
 # Controller helper concern
 module AwsCron
   module Controller
@@ -9,7 +11,7 @@ module AwsCron
     def run(&block)
       yield
     rescue => exception
-      Rails.logger.error(exception) # TODO replace with portable Ruby logger
+      AwsCron::log(:error, exception)
     ensure
       self.return_object
     end
@@ -37,9 +39,5 @@ module AwsCron
     def time_provider
       Time
     end
-
-    private
-    require_relative 'aws_cron/runner/runner.rb'
-
   end
 end

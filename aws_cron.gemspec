@@ -2,8 +2,6 @@
 
 $LOAD_PATH.push File.expand_path("../lib", __FILE__)
 require "aws_cron/identity"
-require "aws_cron/controller"
-require "aws_cron/runner"
 
 Gem::Specification.new do |spec|
   spec.name = AwsCron::Identity.name
@@ -20,7 +18,8 @@ Gem::Specification.new do |spec|
     spec.cert_chain = [Gem.default_cert_path]
   end
 
-  spec.add_dependency "activesupport", "~> 4.2.7"
+  spec.add_dependency "activesupport", "~> 4.0"
+  spec.add_dependency "parse-cron", "~> 0.1.4"
 
   spec.add_development_dependency "rake", "~> 11.0"
   spec.add_development_dependency "gemsmith", "~> 8.1"
