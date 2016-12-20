@@ -18,7 +18,7 @@ Gem::Specification.new do |spec|
     spec.cert_chain = [Gem.default_cert_path]
   end
 
-  spec.add_dependency "activesupport", "~> 4.0"
+  spec.add_dependency "activesupport", "~> 4.1"
   spec.add_dependency "parse-cron", "~> 0.1.4"
 
   spec.add_development_dependency "rake", "~> 11.0"
