@@ -1,6 +1,6 @@
 # AwsCron
 
-[![CircleCI](https://circleci.com/gh/wealthsimple/aws_cron.svg?style=svg)](https://circleci.com/gh/wealthsimple/aws_cron) [![Gem Version](https://badge.fury.io/rb/aws_cron.svg)](http://badge.fury.io/rb/aws_cron)
+[![CircleCI](https://circleci.com/gh/wealthsimple/aws_cron.svg?style=shield)](https://circleci.com/gh/wealthsimple/aws_cron) [![Code Climate](https://codeclimate.com/github/wealthsimple/aws_cron/badges/gpa.svg)](https://codeclimate.com/github/wealthsimple/aws_cron) [![Gem Version](https://badge.fury.io/rb/aws_cron.svg)](http://badge.fury.io/rb/aws_cron)
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
