@@ -2,12 +2,8 @@ machine:
   ruby:
     version: 2.3.0
 dependencies:
-  override:
-    - 'rvm-exec 2.3.0 bundle install'
   post:
     - bundle exec bundle-audit update && bundle exec bundle-audit check
 test:
-  override:
-    - 'rvm-exec 2.3.0 bundle exec rspec'
   post:
     - bash <(curl -s https://codecov.io/bash)
