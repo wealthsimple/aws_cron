@@ -23,11 +23,43 @@
 
 # Features
 
-# Screencasts
+AwsCron does all the housekeeping related to handling [AWS Elastic Beanstalk Periodic Tasks](http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features-managing-env-tiers.html#worker-periodictasks).
+* Handles HTTP responses, even in case of exceptions
+* Reliable error logging, using your preferred logger
+* Timezone-aware cron scheduling
+  * AWS only allows UTC scheduling. AwsCron helps you use your desired timezone instead. 
+
+## Examples
+
+```ruby
+class MyAwsControllerResponsibleForCronCalls
+  include AwsCron::Controller
+   
+  def foo_endpoint
+    run { GenericTask.run }
+  end
+  
+  def timezoned_9am_endpoint
+    run_in_tz '0 9 * * *' do
+      TimezoneSpecific9AMTask.run
+    end
+  end
+  
+  protected
+
+  def time_provider # This is the default timezone for all `run_in_tz` calls
+    ActiveSupport::TimeZone.new('America/New_York')
+  end
+  
+  def return_object # AWS Scheduler always expects ok, even in case of errors
+    render :json => {message: 'ok'}
+  end
+end
+```
 
 # Requirements
 
-0. [Ruby 2.3.1](https://www.ruby-lang.org)
+0. [Ruby 2.3.0](https://www.ruby-lang.org)
 
 # Setup
 
@@ -47,8 +79,6 @@ For an insecure install, type the following (not recommended):
 Add the following to your Gemfile:
 
     gem "aws_cron"
-
-# Usage
 
 # Tests
 
@@ -75,8 +105,9 @@ Read [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 # License
 
-Copyright (c) 2016 []().
-Read [LICENSE](LICENSE.md) for details.
+[MIT License](LICENSE.md)
+
+Copyright (c) 2016 [Wealthsimple](https://wealthsimple.com).
 
 # History
 
@@ -85,5 +116,4 @@ Built with [Gemsmith](https://github.com/bkuhlmann/gemsmith).
 
 # Credits
 
-Developed by [Marco Costa]() at
-[]().
+Developed by [Marco Costa](http://marcotc.com) at [Wealthsimple](https://wealthsimple.com).
