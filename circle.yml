@@ -9,3 +9,5 @@ dependencies:
 test:
   override:
     - 'rvm-exec 2.3.0 bundle exec rspec'
+  post:
+    - bash <(curl -s https://codecov.io/bash)
