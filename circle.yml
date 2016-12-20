@@ -5,5 +5,7 @@ dependencies:
   post:
     - bundle exec bundle-audit update && bundle exec bundle-audit check
 test:
+  override:
+    - RAILS_ENV=test bundle exec rspec -r rspec_junit_formatter --format progress --format RspecJunitFormatter -o $CIRCLE_TEST_REPORTS/rspec/junit.xml
   post:
     - bash <(curl -s https://codecov.io/bash)
