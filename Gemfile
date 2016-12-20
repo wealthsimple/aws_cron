@@ -6,6 +6,6 @@ group :development, :test do
   gem 'bundler-audit', require: false
 end
 
-gem 'codecov', :require => false, :group => :test
+gem 'simplecov', :require => false, :group => :test
 
 gemspec
