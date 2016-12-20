@@ -7,5 +7,6 @@ group :development, :test do
 end
 
 gem 'simplecov', :require => false, :group => :test
+gem 'rspec_junit_formatter', '0.2.2'
 
 gemspec
