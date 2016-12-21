@@ -7,10 +7,9 @@
 # Table of Contents
 
 - [Features](#features)
-- [Screencasts](#screencasts)
+  - [Examples](#examples)
 - [Requirements](#requirements)
 - [Setup](#setup)
-- [Usage](#usage)
 - [Tests](#tests)
 - [Versioning](#versioning)
 - [Code of Conduct](#code-of-conduct)
