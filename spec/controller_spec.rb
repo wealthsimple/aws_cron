@@ -1,6 +1,5 @@
-require 'aws_cron'
+require 'spec_helper'
 require 'active_support/testing/time_helpers'
-require 'active_support/all'
 
 module AwsCron
   describe Controller do
