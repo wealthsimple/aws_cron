@@ -29,6 +29,7 @@ RSpec.configure do |config|
   config.filter_run_when_matching :focus
   config.example_status_persistence_file_path = "./tmp/rspec-status.txt"
   config.shared_context_metadata_behavior = :apply_to_host_groups
+  config.expose_dsl_globally = true
 
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true

@@ -2,3 +2,5 @@
 .bundle
 pkg/*
 Gemfile.lock
+coverage/
+tmp/

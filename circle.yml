@@ -4,8 +4,3 @@ machine:
 dependencies:
   post:
     - bundle exec bundle-audit update && bundle exec bundle-audit check
-test:
-  override:
-    - bundle exec rake
-  post:
-    - bash <(curl -s https://codecov.io/bash)
