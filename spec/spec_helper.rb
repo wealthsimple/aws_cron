@@ -17,7 +17,10 @@ require "bundler/setup"
 require "pry"
 require "pry-byebug"
 require "pry-state"
+require "active_support/all"
+
 require "aws_cron"
+
 Dir[File.join(File.dirname(__FILE__), "support/shared_contexts/**/*.rb")].each { |file| require file }
 
 RSpec.configure do |config|
@@ -39,5 +42,3 @@ RSpec.configure do |config|
   $stdout = File.new("/dev/null", "w") if ENV["SUPPRESS_STDOUT"] == "enabled"
   $stderr = File.new("/dev/null", "w") if ENV["SUPPRESS_STDERR"] == "enabled"
 end
-
-require 'aws_cron'
