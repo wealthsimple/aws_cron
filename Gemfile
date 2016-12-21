@@ -6,4 +6,6 @@ group :development, :test do
   gem 'bundler-audit', require: false
 end
 
+gem 'coveralls', require: false
+
 gemspec
