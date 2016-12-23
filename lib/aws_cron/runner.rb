@@ -19,8 +19,25 @@ module AwsCron
 
     def should_run(time)
       last_execution_time = @cron.last(time)
+      next_execution_time = @cron.next(time)
 
-      time >= last_execution_time - @leniency_secs && time < last_execution_time + @leniency_secs
+      # Addresses 'parse-cron' behaviour of not being able to tell
+      # if the cron schedule matches the current time.
+      # If your cron should run at 9AM, asking
+      # CronParser at exactly 9AM will yield:
+      #   last: yesterday 9AM
+      #   next: tomorrow 9AM
+      #
+      # But at 9:01AM, it will yield:
+      #   last: today 9AM
+      #   next: tomorrow 9AM
+      current_execution_time = @cron.last(time + 1.minute)
+
+      time_matches?(time, last_execution_time) || time_matches?(time, next_execution_time) || time_matches?(time, current_execution_time)
+    end
+
+    def time_matches?(time, reference_time)
+      time >= reference_time - @leniency_secs && time < reference_time + @leniency_secs
     end
   end
 end

@@ -17,14 +17,30 @@ module AwsCron
       end
 
       context 'with specific time' do
-        before(:each) { travel_to Time.new(2016, 1, 2, 3, 1) }
+        before(:each) { travel_to Time.new(2016, 1, 2, 3) }
 
-        it 'should run block after set time' do
-          expect { |b| subject.run_in_tz('0 3 * * *', &b) }.to yield_control
+        context 'within leniency bounds' do
+          it 'should run block after at time' do
+            expect { |b| subject.run_in_tz('0 3 * * *', &b) }.to yield_control
+          end
+
+          it 'should run block after set time' do
+            expect { |b| subject.run_in_tz('10 3 * * *', &b) }.to yield_control
+          end
+
+          it 'should run block before set time' do
+            expect { |b| subject.run_in_tz('59 2 * * *', &b) }.to yield_control
+          end
         end
 
-        it 'should not run block before set time' do
-          expect { |b| subject.run_in_tz('30 2 * * *', &b) }.to_not yield_control
+        context 'outside leniency bounds' do
+          it 'should not run block before set time' do
+            expect { |b| subject.run_in_tz('30 2 * * *', &b) }.to_not yield_control
+          end
+
+          it 'should not run block after set time' do
+            expect { |b| subject.run_in_tz('31 3 * * *', &b) }.to_not yield_control
+          end
         end
       end
     end
