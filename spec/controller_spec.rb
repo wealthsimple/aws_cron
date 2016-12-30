@@ -1,15 +1,18 @@
 require 'spec_helper'
 require 'active_support/testing/time_helpers'
+require 'action_controller/api'
 
 module AwsCron
+  class Fixture < ActionController::API
+    include AwsCron::Controller
+  end
+
   describe Controller do
     include ActiveSupport::Testing::TimeHelpers
 
-    subject {
-      obj = Struct.new(:dummy) { include Controller }.new
-      allow(obj).to receive(:return_object)
-      obj
-    }
+    subject { Fixture.new }
+
+    before(:each) { allow(subject).to receive(:render).with(json: {message: 'ok'}).and_return('ok') }
 
     context 'with timezone time' do
       it 'should run block' do
