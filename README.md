@@ -2,9 +2,11 @@
 
 [![Gem Version](https://badge.fury.io/rb/aws_cron.svg)](http://badge.fury.io/rb/aws_cron)
 [![CircleCI](https://circleci.com/gh/wealthsimple/aws_cron.svg?style=shield)](https://circleci.com/gh/wealthsimple/aws_cron) 
+[![Dependency Status](https://gemnasium.com/badges/github.com/wealthsimple/aws_cron.svg)](https://gemnasium.com/github.com/wealthsimple/aws_cron)
 [![Code Climate](https://codeclimate.com/github/wealthsimple/aws_cron/badges/gpa.svg)](https://codeclimate.com/github/wealthsimple/aws_cron)
 [![codecov](https://codecov.io/gh/wealthsimple/aws_cron/branch/master/graph/badge.svg)](https://codecov.io/gh/wealthsimple/aws_cron)
 [![Gitter chat](https://img.shields.io/gitter/room/wealthsimple/Lobby.svg?style=flat)](https://gitter.im/wealthsimple/Lobby)
+
 
 <!-- Tocer[start]: Auto-generated, don't remove. -->
 
